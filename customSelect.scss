@@ -1,0 +1,44 @@
+
+/* -------------------- */
+/* ::: S E L E C T  ::: */
+/* -------------------- */
+
+.custom-select {
+    position: relative;
+    @extend %iconAfter; @include sprite(arrow-down-black after);
+    cursor: pointer;
+
+    &:before { // Pour caché les styles de la flêche sur Firefox et IE
+        content: "";
+        @include absolute(auto 1 1);
+        display: inline-block;
+        @include cube($customSelectHeight - 2);
+        background-color: $customSelectBackground;
+        pointer-events: none; text-align: center;
+    }
+
+    &:after {
+        @include absolute(auto 10 10);
+        pointer-events: none;
+    }
+
+    select {
+        // position: relative;
+        display: inline-block;
+        width: 100%; height: $customSelectHeight; //@include alignVertically($customSelectHeight);
+        //margin: 0;
+        // padding: 12px 20px 12px 15px;
+        padding-left: $customSelectPaddingLeft;
+        background-color: $white;
+        border: 1px solid $customSelectBorderBtn; 
+        @include appearance(none);
+    }
+
+    // Désactive pour IE10 et inf
+    .lte11 & { 
+
+        &:before, &:after { display: none }
+
+        select { line-height: inherit; padding-top: 12px; padding-bottom: 12px }
+    }
+}
