@@ -5,10 +5,10 @@
 
 .custom-select {
     position: relative;
-    @extend %iconAfter; @include sprite(arrow-down-black after);
+    @extend %iconAfter; @include sprite(arrow-down-black after); // => add an icon in :after
     cursor: pointer;
 
-    &:before { // Pour caché les styles de la flêche sur Firefox et IE
+    &:before { // To hide style of arrow in Firefox and IE
         content: "";
         @include absolute(auto 1 1);
         display: inline-block;
@@ -23,18 +23,15 @@
     }
 
     select {
-        // position: relative;
         display: inline-block;
-        width: 100%; height: $customSelectHeight; //@include alignVertically($customSelectHeight);
-        //margin: 0;
-        // padding: 12px 20px 12px 15px;
+        width: 100%; height: $customSelectHeight;
         padding-left: $customSelectPaddingLeft;
-        background-color: $white;
+        background-color: white;
         border: 1px solid $customSelectBorderBtn; 
         @include appearance(none);
     }
 
-    // Désactive pour IE10 et inf
+    // Disable for IE10 and down
     .lte11 & { 
 
         &:before, &:after { display: none }
