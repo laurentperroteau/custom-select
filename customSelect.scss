@@ -10,7 +10,7 @@
 
     &:before { // To hide style of arrow in Firefox and IE
         content: "";
-        @include absolute(auto 1 1);
+        @include absolute(auto 1 1); // == position: absolute; top: 1px; right: 1px
         display: inline-block;
         @include cube($customSelectHeight - 2);
         background-color: $customSelectBackground;
