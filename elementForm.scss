@@ -1,0 +1,18 @@
+/* #Custom select */
+/* ---------------*/
+/*
+    <div class="custom-select">    
+        <select>
+            <option>Choisissez carte de crédit</option>
+            <option>Visa</option>
+            <option>Mastercart</option>
+        </select>
+    </div>
+ */
+// Setting switch checkbox
+$customSelectHeight: 26px;
+$customSelectBackground: $white;
+$customSelectBorderBtn: #cecece;
+$customSelectPaddingLeft: 11px;
+
+@import "elementForm/customSelect";
