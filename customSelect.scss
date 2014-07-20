@@ -5,7 +5,7 @@
 
 .custom-select {
     position: relative;
-    @extend %iconAfter; @include sprite(arrow-down-black after); // => add an icon in :after
+    @extend %iconAfter; @include sprite(arrow-down-black after); // => add an arrow icon in :after
     cursor: pointer;
 
     &:before { // To hide style of arrow in Firefox and IE
@@ -28,7 +28,7 @@
         padding-left: $customSelectPaddingLeft;
         background-color: white;
         border: 1px solid $customSelectBorderBtn; 
-        @include appearance(none);
+        @include appearance(none); // compass mixin
     }
 
     // Disable for IE10 and down
