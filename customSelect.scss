@@ -28,6 +28,7 @@
         padding-left: $customSelectPaddingLeft;
         background-color: white;
         border: 1px solid $customSelectBorderBtn; 
+        border-radius: 0; // cancel iso radius
         @include appearance(none); // compass mixin
     }
 
