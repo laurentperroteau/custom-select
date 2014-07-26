@@ -1,19 +1,40 @@
 
-/* -------------------- */
-/* ::: S E L E C T  ::: */
-/* -------------------- */
+/* ---------------------------- */
+/* ::: Grand Wazoo Dropdown ::: */
+/* ---------------------------- */
 
-.custom-select {
+/* The html
+
+    <div class="dropdown">    
+        <select>
+            <option>Choisissez carte de crédit</option>
+            <option>Visa</option>
+            <option>Mastercart</option>
+        </select>
+    </div>
+ */
+
+// Default variable
+$gw-ui-dropdown-namespace: $grand-wazoo-namespace !default;
+
+$gw-ui-dropdown-height: 26px !default;
+$gw-ui-dropdown-background: white !default;
+$gw-ui-dropdown-border-color: #cecece !default;
+$gw-ui-dropdown-padding-left: 11px !default;
+
+// The scss
+.#{$gw-ui-dropdown-namespace}dropdown,
+%#{$gw-ui-dropdown-namespace}dropdown, {
     position: relative;
-    @extend %iconAfter; @include sprite(arrow-down-black after); // => add an arrow icon in :after
+    //@extend %iconAfter; @include sprite(arrow-down-black after); // => add an arrow icon in :after
     cursor: pointer;
 
     &:before { // To hide style of arrow in Firefox and IE
         content: "";
-        @include absolute(auto 1 1); // == position: absolute; top: 1px; right: 1px
+        @include absolute(auto 1 1);
         display: inline-block;
-        @include cube($customSelectHeight - 2);
-        background-color: $customSelectBackground;
+        @include cube($gw-ui-dropdown-height - 2);
+        background-color: $gw-ui-dropdown-background;
         pointer-events: none; text-align: center;
     }
 
@@ -24,10 +45,10 @@
 
     select {
         display: inline-block;
-        width: 100%; height: $customSelectHeight;
-        padding-left: $customSelectPaddingLeft;
-        background-color: white;
-        border: 1px solid $customSelectBorderBtn; 
+        width: 100%; height: $gw-ui-dropdown-height;
+        padding-left: $gw-ui-dropdown-padding-left;
+        background-color: $gw-ui-dropdown-background;
+        border: 1px solid $gw-ui-dropdown-border-color; 
         border-radius: 0; // cancel iso radius
         @include appearance(none); // compass mixin
     }
