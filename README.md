@@ -1,4 +1,4 @@
-Grand Wazzo Dropdown
+Grand Wazoo Dropdown
 ====================
 
 ## reworking in progress !
