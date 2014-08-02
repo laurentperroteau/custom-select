@@ -1,7 +1,7 @@
 {
-  "name": "grand-wazoo-dropdown",
+  "name": "yupik-dropdown",
   "version": "0.0.1",
-  "homepage": "https://github.com/laurentperroteau/grand-wazoo-dropdown",
+  "homepage": "https://github.com/laurentperroteau/yupik-dropdown",
   "authors": [
     "laurentperroteau <laurentperroteau@gmail.com>"
   ],
@@ -22,5 +22,9 @@
     "bower_components",
     "test",
     "tests"
-  ]
+  ],
+  "dependencies": {
+    "yupik-mixin-position": "~0.0.2",
+    "yupik-mixin-shape": "~0.0.1"
+  }
 }

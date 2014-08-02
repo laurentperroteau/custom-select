@@ -1,7 +1,8 @@
 
 /* ---------------------------- */
-/* ::: Grand Wazoo Dropdown ::: */
+/* ::: Yupik Dropdown ::: */
 /* ---------------------------- */
+
 
 /* The html
 
@@ -14,46 +15,53 @@
     </div>
  */
 
-// Default variable
-$gw-ui-dropdown-namespace: $grand-wazoo-namespace !default;
 
-$gw-ui-dropdown-height: 26px !default;
-$gw-ui-dropdown-background: white !default;
-$gw-ui-dropdown-border-color: #cecece !default;
-$gw-ui-dropdown-padding-left: 11px !default;
+// Default variable
+$yupik-ui-dropdown-namespace: $yupik-namespace !default;
+
+$yupik-ui-dropdown-height:       26px !default;
+$yupik-ui-dropdown-background:   white !default;
+$yupik-ui-dropdown-border-color: #cecece !default;
+$yupik-ui-dropdown-padding-left: 11px !default;
+$yupik-ui-dropdown-arrow-width:  18px !default;
+$yupik-ui-dropdown-arrow-height: 12px !default;
+$yupik-ui-dropdown-arrow-color:  #333 !default;
 
 // The scss
-.#{$gw-ui-dropdown-namespace}dropdown,
-%#{$gw-ui-dropdown-namespace}dropdown, {
+.#{$yupik-ui-dropdown-namespace}dropdown,
+%#{$yupik-ui-dropdown-namespace}dropdown, {
     position: relative;
-    //@extend %iconAfter; @include sprite(arrow-down-black after); // => add an arrow icon in :after
     cursor: pointer;
 
     &:before { // To hide style of arrow in Firefox and IE
         content: "";
         @include absolute(auto 1 1);
         display: inline-block;
-        @include cube($gw-ui-dropdown-height - 2);
-        background-color: $gw-ui-dropdown-background;
+        @include cube($yupik-ui-dropdown-height - 2);
+        background-color: $yupik-ui-dropdown-background;
         pointer-events: none; text-align: center;
     }
 
     &:after {
-        @include absolute(auto 10 10);
+        content: "";
+        @include triangle($yupik-ui-dropdown-arrow-width $yupik-ui-dropdown-arrow-height down $yupik-ui-dropdown-arrow-color);
+        @include absolute(auto auto 10);
+        @include vertical-center;
         pointer-events: none;
     }
 
     select {
         display: inline-block;
-        width: 100%; height: $gw-ui-dropdown-height;
-        padding-left: $gw-ui-dropdown-padding-left;
-        background-color: $gw-ui-dropdown-background;
-        border: 1px solid $gw-ui-dropdown-border-color; 
+        width: 100%; height: $yupik-ui-dropdown-height;
+        padding-left: $yupik-ui-dropdown-padding-left;
+        background-color: $yupik-ui-dropdown-background;
+        border: 1px solid $yupik-ui-dropdown-border-color; 
         border-radius: 0; // cancel iso radius
-        @include appearance(none); // compass mixin
+        //@include appearance(none); // compass mixin
     }
 
     // Disable for IE10 and down
+    // todo: voir utiliser un autre sélecteur (une class de modernizer)
     .lte11 & { 
 
         &:before, &:after { display: none }
