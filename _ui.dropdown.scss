@@ -4,7 +4,7 @@
 /* ---------------------------- */
 
 
-/* The html
+/* The HTML
 
     <div class="dropdown">    
         <select>
@@ -17,34 +17,38 @@
 
 
 // Default variable
-$yupik-ui-dropdown-namespace: $yupik-namespace !default;
+$yupik-dropdown-namespace: $inuit-namespace !default;
 
-$yupik-ui-dropdown-height:       26px !default;
-$yupik-ui-dropdown-background:   white !default;
-$yupik-ui-dropdown-border-color: #cecece !default;
-$yupik-ui-dropdown-padding-left: 11px !default;
-$yupik-ui-dropdown-arrow-width:  18px !default;
-$yupik-ui-dropdown-arrow-height: 12px !default;
-$yupik-ui-dropdown-arrow-color:  #333 !default;
+$yupik-dropdown-height:       26px !default;
+$yupik-dropdown-background:   white !default;
+$yupik-dropdown-border-color: #cecece !default;
+$yupik-dropdown-padding-left: 11px !default;
+$yupik-dropdown-arrow-width:  12px !default;
+$yupik-dropdown-arrow-height: 8px !default;
+$yupik-dropdown-arrow-color:  #333 !default;
+// Selector using to disabled the arrow on IE10 and inferior
+$yupik-dropdown-disabled-selector: ".lte11";
 
-// The scss
-.#{$yupik-ui-dropdown-namespace}dropdown,
-%#{$yupik-ui-dropdown-namespace}dropdown, {
+
+// The SCSS
+.#{$yupik-dropdown-namespace}dropdown,
+%#{$yupik-dropdown-namespace}dropdown, {
     position: relative;
     cursor: pointer;
 
-    &:before { // To hide style of arrow in Firefox and IE
+    // To hide style of arrow in Firefox and IE
+    &:before { 
         content: "";
         @include absolute(auto 1 1);
         display: inline-block;
-        @include cube($yupik-ui-dropdown-height - 2);
-        background-color: $yupik-ui-dropdown-background;
+        @include cube($yupik-dropdown-height - 2);
+        background-color: $yupik-dropdown-background;
         pointer-events: none; text-align: center;
     }
 
     &:after {
         content: "";
-        @include triangle($yupik-ui-dropdown-arrow-width $yupik-ui-dropdown-arrow-height down $yupik-ui-dropdown-arrow-color);
+        @include triangle($yupik-dropdown-arrow-width $yupik-dropdown-arrow-height down $yupik-dropdown-arrow-color);
         @include absolute(auto auto 10);
         @include vertical-center;
         pointer-events: none;
@@ -52,20 +56,19 @@ $yupik-ui-dropdown-arrow-color:  #333 !default;
 
     select {
         display: inline-block;
-        width: 100%; height: $yupik-ui-dropdown-height;
-        padding-left: $yupik-ui-dropdown-padding-left;
-        background-color: $yupik-ui-dropdown-background;
-        border: 1px solid $yupik-ui-dropdown-border-color; 
+        width: 100%; height: $yupik-dropdown-height;
+        padding-left: $yupik-dropdown-padding-left;
+        background-color: $yupik-dropdown-background;
+        border: 1px solid $yupik-dropdown-border-color; 
         border-radius: 0; // cancel iso radius
-        //@include appearance(none); // compass mixin
+        @include vendor(appearance, none);
     }
 
     // Disable for IE10 and down
-    // todo: voir utiliser un autre sélecteur (une class de modernizer)
-    .lte11 & { 
+    #{$yupik-dropdown-disabled-selector} & { 
 
         &:before, &:after { display: none }
 
-        select { line-height: inherit; padding-top: 12px; padding-bottom: 12px }
+        select { line-height: inherit; padding-top: $yupik-dropdown-arrow-width; padding-bottom: $yupik-dropdown-arrow-width }
     }
 }
