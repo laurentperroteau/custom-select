@@ -4,16 +4,16 @@
 /* ---------------------------- */
 
 
-/* The HTML
+ // The HTML
 
-    <div class="dropdown">    
-        <select>
-            <option>Choisissez carte de crédit</option>
-            <option>Visa</option>
-            <option>Mastercart</option>
-        </select>
-    </div>
- */
+ //    <div class="dropdown">    
+ //        <select>
+ //            <option>Choisissez une carte de crédit</option>
+ //            <option>Visa</option>
+ //            <option>Mastercart</option>
+ //        </select>
+ //    </div>
+
 
 
 // Default variable
@@ -39,7 +39,7 @@ $yupik-dropdown-disabled-selector: ".lte11";
     // To hide style of arrow in Firefox and IE
     &:before { 
         content: "";
-        @include absolute(auto 1 1);
+        position: absolute; top: 1px; right: 1px;
         display: inline-block;
         @include cube($yupik-dropdown-height - 2);
         background-color: $yupik-dropdown-background;
@@ -48,9 +48,9 @@ $yupik-dropdown-disabled-selector: ".lte11";
 
     &:after {
         content: "";
+        position: absolute; right: 10px;
         @include triangle($yupik-dropdown-arrow-width $yupik-dropdown-arrow-height down $yupik-dropdown-arrow-color);
-        @include absolute(auto auto 10);
-        @include vertical-center;
+        @extend %yupik-vertical-center;
         pointer-events: none;
     }
 

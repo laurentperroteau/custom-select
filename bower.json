@@ -24,7 +24,8 @@
     "tests"
   ],
   "dependencies": {
-    "yupik-mixin-position": "~0.0.2",
-    "yupik-mixin-shape": "~0.0.1"
+    "inuit-box-sizing": "~0.2.0",
+    "yupik-mixin-shape": "~0.0.1",
+    "yupik-vertical-center": "~0.0.1"
   }
 }
