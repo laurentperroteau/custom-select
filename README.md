@@ -1,11 +1,11 @@
 Yupik Dropdown
 ===============
 
-## reworking in progress !
-
 ### Styling &lt;select&gt; element easily without lose user experience
 
->  Work in all modern browser. In IE10 and lower, native arrow is using.
+> Is part of [Yupik collection of modules](https://github.com/laurentperroteau/yupik)
+
+Work in all modern browser. In IE10 and lower, native arrow is using [__DEMO__](http://codepen.io/laurentperroteau/pen/ZYOmPv?editors=110)
 
 Install using Bower:
 
