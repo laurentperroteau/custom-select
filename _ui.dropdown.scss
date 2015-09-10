@@ -41,7 +41,8 @@ $yupik-dropdown-disabled-selector: ".lte11";
         content: "";
         position: absolute; top: 1px; right: 1px;
         display: inline-block;
-        @include cube($yupik-dropdown-height - 2);
+        width: $yupik-dropdown-height - 2; // 2px == border of select
+        height: calc( 100% - 2px );
         background-color: $yupik-dropdown-background;
         pointer-events: none; text-align: center;
     }
@@ -58,6 +59,7 @@ $yupik-dropdown-disabled-selector: ".lte11";
         display: inline-block;
         width: 100%; height: $yupik-dropdown-height;
         padding-left: $yupik-dropdown-padding-left;
+        padding-right: $yupik-dropdown-height - 2;
         background-color: $yupik-dropdown-background;
         border: 1px solid $yupik-dropdown-border-color; 
         border-radius: 0; // cancel iso radius
